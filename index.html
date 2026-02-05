@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>DOCUMENT 1</title>
+<style>
+html, body { margin:0; padding:0; width:100%; height:100%; font-family:sans-serif; background:#000; color:white; overflow:hidden; }
+.page { width:100%; height:100%; display:none; justify-content:center; align-items:center; flex-direction:column; text-align:center; position:absolute; top:0; left:0; }
+.page.active { display:flex; }
+img { width:90%; max-width:400px; border-radius:16px; cursor:pointer; margin-bottom:20px; }
+button { padding:12px 25px; font-size:18px; border:none; border-radius:10px; cursor:pointer; background:#b00000; color:white; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<!-- Page Cover -->
+<div id="coverPage" class="page active">
+  <img id="cover" src="cover.jpg" alt="Cover Album DOCUMENT 1">
+  <div>Clique sur la cover pour commencer</div>
+</div>
+
+<!-- Page Tracklist -->
+<div id="tracklistPage" class="page">
+  <img src="tracklist.jpg" alt="Tracklist">
+  <button id="nextTracklist">Suivant</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cover = document.getElementById('cover');
+  const nextTracklistBtn = document.getElementById('nextTracklist');
+  const coverPage = document.getElementById('coverPage');
+  const tracklistPage = document.getElementById('tracklistPage');
+
+  cover.addEventListener('click', () => {
+    coverPage.classList.remove('active');
+    tracklistPage.classList.add('active');
+  });
+
+  nextTracklistBtn.addEventListener('click', () => {
+    alert('Ici commencera la lecture des tracks');
+  });
+});
+</script>
+
+</body>
+</html>
